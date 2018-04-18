@@ -1,3 +1,4 @@
 legacy-app/build
 legacy-app/.gradle
+legacy-app/.kotlin
 lib/

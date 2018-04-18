@@ -2,7 +2,6 @@ version: '3'
 services:
   app:
     build: ./legacy-app
-    working_dir: /data/app
     volumes:
-      - ./legacy-app:/data/app
-      - ./lib:/root/.gradle/caches
+      - ./legacy-app:/home/gradle
+      - ./lib:/home/gradle/.gradle
