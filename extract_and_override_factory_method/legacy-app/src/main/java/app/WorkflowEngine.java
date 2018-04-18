@@ -4,9 +4,13 @@ public class WorkflowEngine {
   private ITransactionManager transactionManager;
 
   public WorkflowEngine () {
+    this.transactionManager = makeTransactionManager();
+  }
+
+  protected ITransactionManager makeTransactionManager() {
     Reader reader = new Reader();
     Persister persister = new Persister();
-    this.transactionManager = new TransactionManager(reader, persister);
+    return new TransactionManager(reader, persister);
   }
 
   public void hello() {

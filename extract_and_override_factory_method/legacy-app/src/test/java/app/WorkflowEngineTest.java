@@ -4,6 +4,18 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+class FakeTransactionManager implements ITransactionManager {
+  public void greeting() {
+    System.out.println("Hey I am the FakeTransactionManager");
+  }
+}
+
+class TestWorkflowEngine extends WorkflowEngine {
+  protected ITransactionManager makeTransactionManager() {
+    return new FakeTransactionManager();
+  }
+}
+
 public class WorkflowEngineTest extends TestCase {
 
     public WorkflowEngineTest(String testName) {
@@ -15,7 +27,7 @@ public class WorkflowEngineTest extends TestCase {
     }
 
     public void testApp() {
-        WorkflowEngine workflowEngine = new WorkflowEngine();
+        WorkflowEngine workflowEngine = new TestWorkflowEngine();
         assertTrue( true );
     }
 }
